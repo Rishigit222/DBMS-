@@ -1,0 +1,6 @@
+# Local database and editor files
+*.log
+*.tmp
+.env
+.vscode/
+

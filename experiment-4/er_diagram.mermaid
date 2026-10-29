@@ -1,0 +1,39 @@
+erDiagram
+    CUSTOMER ||--o{ ORDERS : places
+    ORDERS ||--|{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : appears_in
+    SELLER ||--o{ PRODUCT : lists
+    CATEGORY ||--o{ PRODUCT : classifies
+    CATEGORY ||--o{ CATEGORY : contains
+    CUSTOMER {
+        int Customer_ID PK
+        string Customer_Name
+        string Email UK
+    }
+    ORDERS {
+        int Order_ID PK
+        int Customer_ID FK
+        date Order_Date
+    }
+    ORDER_ITEM {
+        int Order_ID PK, FK
+        int Product_ID PK, FK
+        int Quantity
+    }
+    PRODUCT {
+        int Product_ID PK
+        string Product_Name
+        decimal Price
+        int Seller_ID FK
+        int Category_ID FK
+    }
+    SELLER {
+        int Seller_ID PK
+        string Seller_Name
+        string Email UK
+    }
+    CATEGORY {
+        int Category_ID PK
+        string Category_Name
+        int Parent_ID FK
+    }
